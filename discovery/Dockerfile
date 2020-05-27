@@ -1,5 +1,6 @@
-# make sure you build https://github.com/vivo-community/scholars-discovery
-FROM vivo-scholars-discovery
+ARG SCHOLARS_DISCOVERY_IMAGE_NAME
+ARG SCHOLARS_DISCOVERY_REPO_TAG
+FROM ucdlib/${SCHOLARS_DISCOVERY_IMAGE_NAME}:${SCHOLARS_DISCOVERY_REPO_TAG}
 
 RUN apk update && apk add jq
 
