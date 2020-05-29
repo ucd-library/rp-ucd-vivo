@@ -6,7 +6,10 @@ RUN apk update && apk add jq
 
 COPY config.json /opt/discovery-config.json
 
-CMD export SPRING_APPLICATION_JSON=$(less /opt/discovery-config.json | \
-    jq ".mail.username = \"$GMAIL_USERNAME\" | .mail.password = \"$GMAIL_PASSWORD\""); \
+CMD export SPRING_APPLICATION_JSON=$(jq \
+    ".spring.data.solr.host = \"http://$DISCOVERY_SOLR_HOSTNAME:8983/solr\" | \
+    .ui.url = \"$APP_URL\" | \
+    .vivo[\"base-url\"] = \"$VIVO_BASE_URL\"" \
+    /opt/discovery-config.json); \
     echo $SPRING_APPLICATION_JSON; \
     java -jar ./scholars-discovery.jar
