@@ -34,4 +34,4 @@ COPY ./applicationSetup.n3 applicationSetup.n3.tpl
 RUN export CATALINA_OPTS="-Xms512m -Xmx512m -XX:MaxPermSize=128m"
 
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh
-CMD [ "bash" "-c" "/docker-entrypoint.sh" ]
+CMD /docker-entrypoint.sh

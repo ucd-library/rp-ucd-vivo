@@ -1,8 +1,17 @@
 # VIVO Dockerfile
 
-The VIVO [Dockerfile](vivo/Dockerfile) is based on a tomcat container and installs VIVO 1.10 using maven.  Note that this
-image is designed to not run without an external solr container, so any solr instances built with the vivo installaion
-are removed.
+This file builds and runs the main vivo application.
 
-Some example configuation files are included, but they can be overwritten, typepically by mounting a local configuration
-directory on over that image directory.
+# Configuration
+
+The `applicationSetup.n3` and `runtime.properties` files are templates. `/docker-entrypoint.sh` replaces environmental variable
+names inside `applicationSetup.n3` and `runtime.properties` before
+running.
+
+## Variables
+
+ - `VIVO_SOLR_HOSTNAME` Solr host name in docker-compose
+ - `VIVO_CONTENT_TRIPLE_SOURCE` defaults to 'tdbContentTripleSource'.  To use Fueski, switch to sparqlContentTripleSource
+ - `FUSEKI_HOSTNAME`
+ - `FUSEKI_USERNAME`
+ - `FUSEKI_PASSWORD`
