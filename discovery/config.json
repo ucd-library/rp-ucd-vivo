@@ -2,7 +2,7 @@
   "spring": {
     "data": {
       "solr": {
-        "host": "http://solr-discovery:8983/solr"
+        "host": "http://discovery-solr:8983/solr"
       }
     }
   },

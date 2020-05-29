@@ -28,7 +28,10 @@ RUN rm -r /usr/local/tomcat/webapps/examples
 # Adjust logging, you can mount over this in docker-compose to further adjust
 COPY ./log4j.properties /usr/local/tomcat/webapps/vivo/WEB-INF/classes
 WORKDIR /usr/local/vivo/home/config
-COPY ./dockercompose.runtime.properties runtime.properties
-COPY ./example.applicationSetup.n3 applicationSetup.n3
+COPY ./runtime.properties runtime.properties.tpl
+COPY ./applicationSetup.n3 applicationSetup.n3.tpl
 
 RUN export CATALINA_OPTS="-Xms512m -Xmx512m -XX:MaxPermSize=128m"
+
+COPY ./docker-entrypoint.sh /docker-entrypoint.sh
+CMD [ "bash" "-c" "/docker-entrypoint.sh" ]
