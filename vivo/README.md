@@ -11,7 +11,7 @@ running.
 ## Variables
 
  - `VIVO_SOLR_HOSTNAME` Solr host name in docker-compose
- - `VIVO_CONTENT_TRIPLE_SOURCE` defaults to 'tdbContentTripleSource'.  To use Fueski, switch to sparqlContentTripleSource
- - `FUSEKI_HOSTNAME`
- - `FUSEKI_USERNAME`
- - `FUSEKI_PASSWORD`
+ - `VIVO_CONTENT_TRIPLE_SOURCE` defaults to 'tdbContentTripleSource'.  Will use
+   an external source if `FUSEKI_ENDPOINT` is set.
+ - `FUSEKI_ENDPOINT = http://admin:vivo@fuseki:3030/vivo/` If set will use an
+   external fuseki endpoint
