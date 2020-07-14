@@ -20,7 +20,7 @@
   "graphql": {
     "spqr": {
       "gui": {
-        "enabled": true
+        "enabled": false
       }
     }
   },
@@ -28,10 +28,11 @@
     "allowed-origins": [
       "http://localhost:9000",
       "http://localhost:4200",
-      "http://localhost:3000"
+      "http://localhost:3000",
+      "http://localhost:8080"
     ],
     "index": {
-      "onStartup": false
+      "onStartup": true
     },
     "export": {
       "individualBaseUri": "http://localhost:3000/display"

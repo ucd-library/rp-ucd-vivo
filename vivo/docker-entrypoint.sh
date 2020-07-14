@@ -5,6 +5,13 @@ if [[ -z $VIVO_CONTENT_TRIPLE_SOURCE ]] ; then
   export VIVO_CONTENT_TRIPLE_SOURCE="tdbContentTripleSource"
 fi
 
+if [[ -z $FUSEKI_PORT ]] ; then
+  export FUSEKI_PORT="3030"
+fi
+if [[ -z $FUSEKI_DATASET ]] ; then
+  export FUSEKI_DATASET="vivo"
+fi
+
 content=$(cat runtime.properties.tpl)
 for var in $(compgen -e); do
   content=$(echo "$content" | sed "s|{{$var}}|${!var}|g") 
